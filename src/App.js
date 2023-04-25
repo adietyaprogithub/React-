@@ -1,53 +1,58 @@
-//import './App.css';
+import "./App.css";
 
-function App() {
-
-  
-   const obj ={
-    birth :'Birthday party Invitation ',
-    to : 'jaGdish@gmail.com',
-    name: 'jaGdish',
-    party: 'birthday party',
-    friends:'Ritu , Saurabh , Kartik',
-    location:'Green field Avenue'
-   }
-  
-   
+export default function App() {
+  const obj =[
+    {
+      profession: 'Ui/UX'
+    },
+    {
+      profession: 'Ui/UX'
+    },
+    {
+      profession: 'Ui/UX'
+    }
+  ]
   return (
-  
-    <div>
-      <Top  {...obj}/>
-
-
+    <div style={{ display: "flex", flexDirection: "row" }}>
+      <Card  Info1 ={ obj[0].profession}/>
+      <Card />
+      <Card />
     </div>
-   
-    );
+  );
 }
 
-export default App;
-
-
-
-function Top(props){
-  
+function Card() {
   return (
-
     <div>
-     <p> Subject: <span style={{ color : 'red'}}>{props.birth}</span></p>
-     <p> To: <span style={{color: 'red'}}>{props.birth}</span></p>
-
-     <p> hi , <span style={{color : 'red'}}>{props.name}</span></p>
-
-     <p> I am having a <span style={{color:'red'}}>{props.party}</span>  next Friday at my Home . Would you like to come ? It will be fun . Lots of people from my school are  n</p>
-     <p> coming . you know some of them - <span style={{color : 'red'}}>{props.friends}</span></p>
-
-     <p>My house is behind our school , near <span style={{color :'red'}}>{props.friends}</span> </p>
-     <p>  I hope you will come and see you soon </p>
-
-     <p>from</p>
-     <p><span style={{ color :'red'}}>{props.name}</span></p>
+      <div className="Card">
+        <div className="Card1">
+          <Image />
+          <Info />
+          <Button />
+        </div>
+      </div>
     </div>
-  )
+  );
 }
 
+function Image() {
+  return <img className="img" src="https://i.imgur.com/yXOvdOSs.jpg" alt="" />;
+}
 
+function Info(props) {
+  return (
+    <div>
+      <h4 className="Text">UI/ UX </h4>
+      <h2 className="Text"> Deva Shekhar</h2>
+      <p className="Text">
+       
+        Lorem ipsum dolor, sit amet consectetu hoiefhoafjd mfoadf hfafnkaofda
+        hfoaidf dhdyerffjsdhiasuf
+      </p>
+    </div>
+  );
+}
+
+function Button() {
+  return <button className="button"> See More </button>;
+}
