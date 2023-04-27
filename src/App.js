@@ -1,48 +1,26 @@
-import "./App.css";
-import {Cards} from  "./Cards";
+import React from "react";
+import { useState } from "react";
 
 export default function App() {
-
-const product = [
-   {
-
-    image: '',
-    name : 'Fastract Watch',
-    info : 'This watch is one of the best kind',
-    price:'50$'
-  },
- {
-    image: '',
-    name : 'shoes',
-    info: 'we can wear them as insdide or outside',
-    price: '50$'
-  },
   
- {
-    image: '',
-    name : 'shoes',
-    info: 'we can wear them as insdide or outside',
-    price: '50$'
-  }
-]
+const [name , setName] = useState('')
 
-  
-  return (
-   <div>
-    <div style={{display : "flex" , flexDirection:"row"}} >
-  { product.map ((product , index) => (
-    <Cards key={index}  useDetail={product}/>
-  ))}
-  
-    
-   
-   
-   </div>
+const handler = (e) => {
 
-   </div>
-  );
+  setName (e.target.value)
 }
 
+return(
+
+  <div>
+    <h2> name is {name}</h2>
+    <input type="text"  placeholder="Enter Your name " value={name} onChange={handler}/>
+  </div>
+)
 
 
+  };
+
+  
+  
 
