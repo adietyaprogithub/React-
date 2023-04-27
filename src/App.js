@@ -1,25 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [value, setValue] = useState("");
+  const [message, setmassage] = useState("");
+
+  const checkNumber = (event) => {
+    event.preventDefault();
+
+    const randomNumber = 3;
+
+    if (value === "") {
+      setmassage(" Please Enter the number");
+    } else if (Number(value) === randomNumber) {
+      setmassage(" You have enterd the correct Number ");
+    } else if (Number(value) < randomNumber) {
+      setmassage(" number is smaller ");
+    } else if (Number(value) > randomNumber) {
+      setmassage(" number is larger ");
+    } else {
+      setmassage("guess again");
+    }
+    setValue("");
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1> Guess the Lucky Number </h1>
+      <form onSubmit={checkNumber}>
+        <label>
+          Enter a Number :
+          <input
+            type="text"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+          />
+        </label>
+
+        <button type="submit">check </button>
+      </form>
+
+      {message}
     </div>
   );
 }
-
-export default App;
