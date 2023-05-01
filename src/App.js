@@ -1,17 +1,16 @@
-import React from "react";
-import { useRef } from "react";
+import React, { useRef } from "react";
 
 export default function App() {
   const fileInputRef = useRef(null);
 
-  const handleclickButton = () => {
-    fileInputRef.current.click();
+  const handleButtonClick = () => {
+   fileInputRef.current.click()
   };
 
   return (
     <div>
-      <button onClick={handleclickButton}> Pick the File </button>
-      <input type="text" ref={fileInputRef} />
+      <button onClick={handleButtonClick}>Pick a file</button>
+      <input type="file" style={{ display: "none" }} ref={fileInputRef} />
     </div>
   );
 }
