@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { useState } from "react";
 
-function App() {
+export default function App() {
+  const [data, setData] = useState(
+    "https://images.pexels.com/photos/14182933/pexels-photo-14182933.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+  );
+
+  async function Imgo() {
+    try {
+      const responce = await fetch("https://dog.ceo/api/breeds/image/random");
+      const data = await responce.json();
+      setData(data.message);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      Imgo();
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <img src={data} alt="dog" />
     </div>
   );
 }
-
-export default App;
