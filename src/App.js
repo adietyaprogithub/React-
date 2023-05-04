@@ -1,44 +1,27 @@
-import React from "react";
-import { useEffect } from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function App() {
-  const [info, setInfo] = useState([]);
+  const [number, setNumber] = useState(0);
+  const url = "https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP";
 
-  async function getDetail() {
-    try {
-      const response = await fetch(" https://reqres.in/api/users/");
-      const data = await response.json();
-      setInfo(data.data);
-    } catch (error) {
-      console.log("if the error come ", error);
-    }
+  function handler(e) {
+    setNumber(e.target.value);
   }
 
-  function Jim() {
-    return(
-      <div>
-      <button onClick={getDetail}> click me </button>
-      <ul>
-        {info.map((user) => (
-          <li key={user.id}>
-            <div> Id : {user.id}</div>
-            <div> Email: {user.email}</div>
-            <div>FIrst_name :{user.first_name}</div>
-            <div>Last_Name: {user.last_name}</div>
-            <div>
-              Avatar : <img src={user.avatar} alt="" />
-            </div>
-          </li>
-        ))}
-      </ul>
-    </div>
-    )
+  async function Jim() {
+    try {
+      const responce = await axios.post(url, { mobile: number });
+      console.log(responce.data);
+    } catch {}
   }
 
   return (
     <div>
-      <Jim />
+      <form action="">
+        <input type="text" onChange={handler}  value={number}/>
+        <button onClick={Jim}> Click Button </button>
+      </form>
     </div>
   );
 }
