@@ -1,27 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import axios from "axios";
+import { useState } from "react";
+
+
 
 export default function App() {
-  const [number, setNumber] = useState(0);
-  const url = "https://cdn-api.co-vin.in/api/v2/auth/public/generateOTP";
+  const [data, setData] = useState();
 
-  function handler(e) {
-    setNumber(e.target.value);
-  }
-
-  async function Jim() {
+  async function dog() {
     try {
-      const responce = await axios.post(url, { mobile: number });
-      console.log(responce.data);
-    } catch {}
+      const responce = await axios("https://dog.ceo/api/breeds/image/random");
+      setData(responce.data.message);
+    } catch (error) {
+      console.log(error.error);
+    }
   }
 
   return (
     <div>
-      <form action="">
-        <input type="text" onChange={handler} value={number} />
-        <button onClick={Jim}> Click Button </button>
-      </form>
+      <button onClick={dog}> Click Me </button>
+      <img src={data} alt="" />
     </div>
   );
 }
