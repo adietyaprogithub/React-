@@ -19,7 +19,7 @@ export default function App() {
   return (
     <div>
       <form action="">
-        <input type="text" onChange={handler}  value={number}/>
+        <input type="text" onChange={handler} value={number} />
         <button onClick={Jim}> Click Button </button>
       </form>
     </div>
