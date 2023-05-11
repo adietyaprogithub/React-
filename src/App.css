@@ -1,34 +1,28 @@
-.container{
-
+.container {
+  border: 1px solid yellow;
   display: flex;
-  justify-content: space-between;
+  
+  padding: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+  overflow-x: scroll;
+ 
 }
 
-.icon{
-  display: flex;
-  height: 60px;
-  margin-left: 60px;
-  speak-as: 30px;
+
+
+
+.card {
+ 
+  height: 200px;
+  border-radius: 10px;
+  width: 200px;
+  color: red;
+  background-color: whitesmoke;
+  margin: 10px;
 }
 
-.imager{
-  height: 40vmax;
-  width: 50vmax;
-}
-
-.second{
-  display: flex;
-}
-
-@media screen and (max-width : 500px) {
-
-  .container {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .second{
-    display: flex;
-    flex-direction: column;
-  }
+.imgr{
+  height: 70px;
+  width: 50px;
 }
