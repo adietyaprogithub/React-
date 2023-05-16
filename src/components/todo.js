@@ -1,4 +1,5 @@
 import React from "react";
+import './todo.css'
 
 export default function Todo(props) {
 
@@ -8,7 +9,7 @@ export default function Todo(props) {
     <div>
       <div className="todo_style">
         <li>{props.text}
-        <button onClick={() => {
+        <button className="btn" onClick={() => {
              props.onSeletct(props.id)
         }
        

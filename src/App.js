@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Todo from "./components/todo";
-import './App.css'
+import "./App.css";
 
 export default function App() {
   const [inputlist, setinputlist] = useState("");
@@ -19,8 +19,6 @@ export default function App() {
   };
 
   const deleteItoms = (id) => {
-    console.log("deleted");
-
     setitems((olditems) => {
       return olditems.filter((arrelem, index) => {
         return index !== id;
