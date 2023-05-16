@@ -1,59 +1,29 @@
 import React from "react";
-import { useState } from "react";
-import Todo from "./components/todo";
-import "./App.css";
+import About from "./Components/About";
+import Home from "./Components/Home";
+import Info from "./Components/Info";
+import Topbar from "./Components/Topbar";
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function App() {
-  const [inputlist, setinputlist] = useState("");
-  const [items, setitems] = useState([]);
-
-  const itemEvent = (event) => {
-    setinputlist(event.target.value);
-  };
-
-  const listofitem = () => {
-    setitems((olditems) => {
-      return [...olditems, inputlist];
-    });
-    setinputlist("");
-  };
-
-  const deleteItoms = (id) => {
-    setitems((olditems) => {
-      return olditems.filter((arrelem, index) => {
-        return index !== id;
-      });
-    });
-  };
-
   return (
-    <div className="main_div">
-      <div className="center_div">
-        <br />
+    <Router>
+      <Topbar />
 
-        <h1> To Do List </h1>
-        <br />
-        <input
-          type="text"
-          placeholder="Enter the Name "
-          onChange={itemEvent}
-          value={inputlist}
-        />
-        <button onClick={listofitem}> + </button>
+      <Routes>
+        <Route exact path="/" element={<Home />}></Route>
+      </Routes>
 
-        <ol>
-          {items.map((itemval, index) => {
-            return (
-              <Todo
-                key={index}
-                id={index}
-                text={itemval}
-                onSeletct={deleteItoms}
-              />
-            );
-          })}
-        </ol>
-      </div>
-    </div>
+      <Routes>
+        <Route path="/Info" element={<Info />}>
+          {" "}
+        </Route>
+      </Routes>
+
+      <Routes>
+        <Route path="/About" element={<About />}></Route>
+      </Routes>
+    </Router>
   );
 }
