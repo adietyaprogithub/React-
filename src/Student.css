@@ -1,0 +1,23 @@
+.container{
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.btn{
+    padding-left: 50px;
+    padding-top: 40px;
+}
+
+.btn1{
+    padding: 10px;
+    background-color: royalblue;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
